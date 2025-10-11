@@ -15,6 +15,16 @@
             from { opacity: 1; }
             to { opacity: 0; }
         }
+
+        .fadeIn {
+            animation: fadeIn;
+            animation-duration: 0.3s;
+        }
+
+        .fadeOut {
+            animation: fadeOut;
+            animation-duration: 0.3s;
+        }
     </style>
 </head>
 <body class="flex h-screen w-full flex-col items-center justify-center bg-blue-900">
@@ -60,27 +70,16 @@
                         <div class="w-full text-center">
                             <div class="mb-2 text-sm font-semibold text-blue-600">질문 1 / 10</div>
                             <div class="h-2 w-full rounded-full bg-gray-200">
-                                <div class="h-2 w-1/10 rounded-full bg-blue-600"></div>
+                                <div class="statusBar h-2 rounded-full bg-blue-600"></div>
                             </div>
                         </div>
-                        <h2 class="text-center text-2xl font-bold">
-                            친구들과 모임이 있을 때 나는?
-                        </h2>
-                        <div class="flex h-full w-full flex-col gap-4 overflow-y-auto">
-                            <button class="w-full rounded-lg border-2 border-gray-200 bg-white px-6 py-4 text-left transition hover:border-blue-600 hover:bg-blue-50">
-                                <div class="font-semibold">적극적으로 대화를 주도한다</div>
-                            </button>
-                            <button class="w-full rounded-lg border-2 border-gray-200 bg-white px-6 py-4 text-left transition hover:border-blue-600 hover:bg-blue-50">
-                                <div class="font-semibold">상황을 보며 적절히 참여한다</div>
-                            </button>
-                            <button class="w-full rounded-lg border-2 border-gray-200 bg-white px-6 py-4 text-left transition hover:border-blue-600 hover:bg-blue-50">
-                                <div class="font-semibold">주로 듣는 편이다</div>
-                            </button>
+                        <div class="qBox text-center text-2xl font-bold">
+
+                        </div>
+                        <div class="answerBox flex h-full w-full flex-col gap-4 overflow-y-auto">
+
                         </div>
                     </div>
-                    <button onclick="showSection('result')" class="w-full rounded-lg bg-blue-600 px-6 py-3 font-semibold text-white transition hover:bg-blue-700">
-                        다음
-                    </button>
                 </div>
             </section>
 
@@ -114,16 +113,15 @@
                         다시 하기
                     </button>
                 </div>
+                    <script src="data.js"></script>
+                    <script src="script.js"></script>
             </section>
-
         </main>
-
         <!-- 푸터 -->
         <footer class="flex w-full shrink-0 items-center justify-between px-6 py-2 text-xs font-semibold text-gray-600">
             <div>2025 비슬고 미디어홍보부 @biseul_hs</div>
             <div>신유찬</div>
         </footer>
     </div>
-    <script src="script.js"></script>
 </body>
 </html>
