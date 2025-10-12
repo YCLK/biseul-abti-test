@@ -1,8 +1,46 @@
 const main = document.querySelector("#main");
 const qna = document.querySelector("#qna");
-const endPoint = 12
+const result = document.querySelector("#result");
 
-function addAnswer(answerText, qIdx){
+const endPoint = 12
+const select = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+function calResult(){
+  console.log(select);
+  var result = select.indexOf(Math.max(...select));
+  return result;
+}
+
+function setResult(){
+  let point = calResult();
+  const resultName = document.querySelector('.resultname');
+  resultName.innerHTML = infoList[point].name;
+
+  var resultImg = document.createElement('img');
+  const imgDiv = document.querySelector('#resultImg');
+  var imgURL = 'img/image-' + point + '.png';
+  resultImg.src = imgURL;
+  resultImg.alt = point;
+  resultImg.classList.add('img-fluid');
+  imgDiv.appendChild(resultImg);
+
+  const resultDesc = document.querySelector('.resultDesc');
+  resultDesc.innerHTML = infoList[point].desc;
+}
+
+function goResult(){
+  qna.style.animation = "fadeOut 0.3s";
+  setTimeout(() => {
+    result.style.animation = "fadeIn 0.3s";
+    setTimeout(() => {
+      qna.classList.add("hidden");
+      result.classList.remove("hidden");
+    }, 140)})
+
+    setResult();
+}
+
+function addAnswer(answerText, qIdx, idx){
   var a = document.querySelector('.answerBox');
   var answer = document.createElement('button');
   answer.classList.add(
@@ -32,6 +70,11 @@ function addAnswer(answerText, qIdx){
       children[i].style.animation = "fadeOut 0.3s";
     }
     setTimeout(() => {
+      var target = qnaList[qIdx].a[idx].type;
+      for(let i = 0; i < target.length; i++){
+        select[target[i]] += 1;
+      }
+
       for(let i = 0; i < children.length; i++){
         children[i].classList.add("hidden");
       }
@@ -41,10 +84,15 @@ function addAnswer(answerText, qIdx){
 }
 
 function goNext(qIdx){
+  if(qIdx === endPoint){
+    goResult();
+    return;
+  }
+
   var q = document.querySelector('.qBox');
   q.innerHTML = qnaList[qIdx].q;
   for(let i in qnaList[qIdx].a){
-    addAnswer(qnaList[qIdx].a[i].answer, qIdx);
+    addAnswer(qnaList[qIdx].a[i].answer, qIdx, i);
   }
   var status = document.querySelector('.statusBar');
   status.style.width = (100/endPoint) * (qIdx+1) + '%';

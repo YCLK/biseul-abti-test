@@ -84,32 +84,32 @@
             </section>
 
             <!-- Result 섹션 -->
-            <section id="resultSection" class="hidden h-full">
+            <section id="result" class="hidden h-full">
                 <div class="flex h-full w-full flex-col items-center justify-between gap-4 px-12 pb-8 pt-32">
                     <div class="flex h-full w-full flex-col items-center gap-6 overflow-y-auto">
                         <div class="text-center">
                             <div class="mb-2 text-sm font-semibold text-blue-600">당신의 성격 유형은</div>
-                            <h1 class="text-4xl font-bold">ENFP</h1>
-                            <p class="mt-2 text-xl font-semibold text-gray-700">열정적인 활동가</p>
+                            <h1 class="resultname text-4xl font-bold"></h1>
+                            <!-- <p class="mt-2 text-xl font-semibold text-gray-700">열정적인 활동가</p> -->
                         </div>
                         <div class="flex h-48 w-48 items-center justify-center rounded-lg bg-gradient-to-br from-blue-100 to-purple-100">
-                            <span class="text-7xl">🎨</span>
+                            <div id="resultImg"></div>
                         </div>
                         <div class="w-full space-y-4 text-center">
-                            <p class="text-gray-700">
-                                창의적이고 열정적인 성격으로 새로운 아이디어와 가능성을 탐구하는 것을 좋아합니다.
-                            </p>
-                            <div class="space-y-2">
+                            <div class="resultDesc text-gray-700">
+
+                            </div>
+                            <!-- <div class="space-y-2">
                                 <div class="font-semibold text-gray-800">주요 특징</div>
                                 <div class="flex flex-wrap justify-center gap-2">
                                     <span class="rounded-full bg-blue-100 px-3 py-1 text-sm">외향적</span>
                                     <span class="rounded-full bg-purple-100 px-3 py-1 text-sm">창의적</span>
                                     <span class="rounded-full bg-pink-100 px-3 py-1 text-sm">열정적</span>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
-                    <button onclick="showSection('main')" class="w-full rounded-lg bg-blue-600 px-6 py-3 font-semibold text-white transition hover:bg-blue-700">
+                    <button onclick="" class="w-full rounded-lg bg-blue-600 px-6 py-3 font-semibold text-white transition hover:bg-blue-700">
                         다시 하기
                     </button>
                 </div>
