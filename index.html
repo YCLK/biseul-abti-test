@@ -4,6 +4,16 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>성격 유형 테스트</title>
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://biseul-abit-test.netlify.app/" />
+		<meta property="og:title" content="비슬고 ABTI 테스트" />
+		<meta property="og:image" content="img/og.png" />
+		<meta
+			property="og:description"
+			content="나는 어떤 동물과 닮았을까? 우리 일상 속 동물들로 알아보는 재미있는 성격 유형 테스트!"
+		/>
+		<meta property="og:site_name" content="비슬고 ABTI 테스트" />
+		<meta property="og:locale" content="ko_KR" />
 		<link
 			rel="stylesheet"
 			as="style"
@@ -28,12 +38,29 @@
 							ptdmed: ["Pretendard", "sans-serif"],
 							ptdsmb: ["Pretendard", "sans-serif"],
 							ptdexb: ["Pretendard", "sans-serif"],
+							school: ["SchoolSafetyRoundedSmile", "sans-serif"],
 						},
 					},
 				},
 			};
 		</script>
 		<style>
+			@font-face {
+				font-family: "SchoolSafetyRoundedSmile";
+				src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/2408-5@1.0/HakgyoansimDunggeunmisoTTF-R.woff2")
+					format("woff2");
+				font-weight: normal;
+				font-display: swap;
+			}
+
+			@font-face {
+				font-family: "SchoolSafetyRoundedSmile";
+				src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/2408-5@1.0/HakgyoansimDunggeunmisoTTF-B.woff2")
+					format("woff2");
+				font-weight: 700;
+				font-display: swap;
+			}
+
 			@keyframes fadeIn {
 				from {
 					opacity: 0;
@@ -80,7 +107,7 @@
 		<header
 			class="absolute top-0 z-10 flex h-16 w-full max-w-md items-center justify-between bg-blue-800 px-6 text-white"
 		>
-			<a class="text-lg font-ptdexb" href="#" onclick="goHome(); return false;">비슬고 ABTI 테스트</a>
+			<a class="text-xl font-school font-bold" href="#" onclick="goHome(); return false;">비슬고 ABTI 테스트</a>
 			<div class="text-2xl">📊</div>
 		</header>
 
@@ -92,7 +119,7 @@
 				<section id="main" class="h-full animate-fade-out">
 					<div class="flex h-full w-full flex-col items-center justify-between gap-4 px-12 pb-8 pt-32">
 						<div class="flex h-full w-full flex-col items-center gap-8 overflow-hidden">
-							<h1 class="flex flex-col items-center text-center text-3xl font-ptdexb">
+							<h1 class="flex flex-col items-center text-center text-3xl font-school font-bold">
 								나는 어떤
 								<div class="text-4xl"><strong class="border-b-4 border-b-blue-600">성격 유형</strong>일까?</div>
 							</h1>
@@ -116,12 +143,12 @@
 					<div class="flex h-full w-full flex-col items-center justify-between gap-4 px-12 pb-8 pt-32">
 						<div class="flex h-full w-full flex-col items-center gap-8 overflow-hidden">
 							<div class="w-full text-center">
-								<div class="mb-2 text-sm font-semibold text-blue-600">질문 <span id="currentQ">1</span> / 12</div>
+								<div class="mb-2 text-sm font-ptdsmb text-blue-600">질문 <span id="currentQ">1</span> / 12</div>
 								<div class="h-2 w-full rounded-full bg-gray-200">
 									<div class="statusBar h-2 rounded-full bg-blue-600"></div>
 								</div>
 							</div>
-							<div class="qBox text-center text-2xl font-bold"></div>
+							<div class="qBox text-center text-2xl font-ptdexb"></div>
 							<div class="answerBox flex h-full w-full flex-col gap-4 overflow-y-auto"></div>
 						</div>
 					</div>
@@ -132,7 +159,7 @@
 					<div class="flex h-full w-full flex-col items-center justify-between gap-4 px-12 pb-8 pt-32">
 						<div class="flex h-full w-full flex-col items-center gap-6 overflow-y-auto">
 							<div class="text-center">
-								<div class="mb-2 text-sm font-semibold text-blue-600">당신과 닮아있는 동물은...</div>
+								<div class="mb-2 text-base font-ptdsmb text-blue-600">당신과 닮아있는 동물은...</div>
 								<h1 class="resultname text-4xl font-bold"></h1>
 							</div>
 							<div class="flex h-80 w-80 items-center justify-center rounded-lg bg-blue-100">
@@ -144,9 +171,9 @@
 						</div>
 						<button
 							onclick="restart()"
-							class="w-full rounded-lg bg-blue-600 px-6 py-3 font-semibold text-white transition hover:bg-blue-700"
+							class="w-full rounded-lg bg-blue-600 px-6 py-3 font-ptdsmb text-white transition hover:bg-blue-700"
 						>
-							다시 하기
+							다시하기
 						</button>
 					</div>
 					<script src="data.js"></script>

@@ -15,6 +15,7 @@ function setResult() {
 	let point = calResult();
 	const resultName = document.querySelector(".resultname");
 	resultName.innerHTML = infoList[point].name;
+	resultName.classList.add("font-school", "font-bold");
 
 	var resultImg = document.createElement("img");
 	const imgDiv = document.querySelector("#resultImg");
@@ -26,6 +27,7 @@ function setResult() {
 
 	const resultDesc = document.querySelector(".resultDesc");
 	resultDesc.innerHTML = infoList[point].desc;
+	resultDesc.classList.add("font-ptdsmb", "text-lg");
 }
 
 function goResult() {
@@ -55,6 +57,7 @@ function addAnswer(answerText, qIdx, idx) {
 		"px-6",
 		"py-4",
 		"text-left",
+		"font-ptdmed",
 		"transition",
 		"hover:border-blue-600",
 		"hover:bg-blue-50",
