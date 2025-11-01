@@ -4,15 +4,30 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>성격 유형 테스트</title>
+		<link
+			rel="stylesheet"
+			as="style"
+			crossorigin
+			href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
+		/>
 		<script src="https://cdn.tailwindcss.com"></script>
 		<script>
 			tailwind.config = {
 				theme: {
 					extend: {
 						fontFamily: {
-							ptdmed: ["Pretendard-Medium", "sans-serif"],
-							ptdsmb: ["Pretendard-SemiBold", "sans-serif"],
-							ptdexb: ["Pretendard-ExtraBold", "sans-serif"],
+							pretendard: [
+								"Pretendard Variable",
+								"Pretendard",
+								"-apple-system",
+								"BlinkMacSystemFont",
+								"system-ui",
+								"Roboto",
+								"sans-serif",
+							],
+							ptdmed: ["Pretendard", "sans-serif"],
+							ptdsmb: ["Pretendard", "sans-serif"],
+							ptdexb: ["Pretendard", "sans-serif"],
 						},
 					},
 				},
@@ -46,25 +61,17 @@
 				animation: fadeOut;
 				animation-duration: 0.3s;
 			}
-			@font-face {
-				font-family: "Pretendard-Medium";
-				src: url("/fonts/Pretendard-Medium") format("woff");
+
+			.font-ptdmed {
 				font-weight: 500;
-				font-display: swap;
 			}
 
-			@font-face {
-				font-family: "Pretendard-SemiBold";
-				src: url("/fonts/Pretendard-SemiBold") format("woff");
+			.font-ptdsmb {
 				font-weight: 600;
-				font-display: swap;
 			}
 
-			@font-face {
-				font-family: "Pretendard-ExtraBold";
-				src: url("/fonts/Pretendard-ExtraBold.ttf") format("woff");
+			.font-ptdexb {
 				font-weight: 800;
-				font-display: swap;
 			}
 		</style>
 	</head>
@@ -73,7 +80,7 @@
 		<header
 			class="absolute top-0 z-10 flex h-16 w-full max-w-md items-center justify-between bg-blue-800 px-6 text-white"
 		>
-			<a class="text-lg font-ptdexb" href="#">비슬고 ABTI 테스트</a>
+			<a class="text-lg font-ptdexb" href="#" onclick="goHome(); return false;">비슬고 ABTI 테스트</a>
 			<div class="text-2xl">📊</div>
 		</header>
 
@@ -90,8 +97,8 @@
 								<div class="text-4xl"><strong class="border-b-4 border-b-blue-600">성격 유형</strong>일까?</div>
 							</h1>
 							<div class="relative flex h-full w-full flex-1 items-center justify-center">
-								<div class="flex h-64 w-64 items-center justify-center rounded-lg bg-blue-100">
-									<span class="text-6xl">🧠</span>
+								<div class="flex h-96 w-80 items-center justify-center rounded-lg bg-blue-100">
+									<img src="img/image-0.png" alt="메인 이미지" class="max-w-full max-h-full object-contain" />
 								</div>
 							</div>
 						</div>
@@ -109,7 +116,7 @@
 					<div class="flex h-full w-full flex-col items-center justify-between gap-4 px-12 pb-8 pt-32">
 						<div class="flex h-full w-full flex-col items-center gap-8 overflow-hidden">
 							<div class="w-full text-center">
-								<div class="mb-2 text-sm font-semibold text-blue-600">질문 1 / 10</div>
+								<div class="mb-2 text-sm font-semibold text-blue-600">질문 <span id="currentQ">1</span> / 12</div>
 								<div class="h-2 w-full rounded-full bg-gray-200">
 									<div class="statusBar h-2 rounded-full bg-blue-600"></div>
 								</div>
@@ -125,21 +132,18 @@
 					<div class="flex h-full w-full flex-col items-center justify-between gap-4 px-12 pb-8 pt-32">
 						<div class="flex h-full w-full flex-col items-center gap-6 overflow-y-auto">
 							<div class="text-center">
-								<div class="mb-2 text-sm font-semibold text-blue-600">당신의 성격 유형은</div>
+								<div class="mb-2 text-sm font-semibold text-blue-600">당신과 닮아있는 동물은...</div>
 								<h1 class="resultname text-4xl font-bold"></h1>
-								<!-- <p class="mt-2 text-xl font-semibold text-gray-700">열정적인 활동가</p> -->
 							</div>
-							<div
-								class="flex h-48 w-48 items-center justify-center rounded-lg bg-gradient-to-br from-blue-100 to-purple-100"
-							>
-								<div id="resultImg"></div>
+							<div class="flex h-80 w-80 items-center justify-center rounded-lg bg-blue-100">
+								<div id="resultImg" class="w-full h-full flex items-center justify-center"></div>
 							</div>
 							<div class="w-full space-y-4 text-center">
 								<div class="resultDesc text-gray-700"></div>
 							</div>
 						</div>
 						<button
-							onclick=""
+							onclick="restart()"
 							class="w-full rounded-lg bg-blue-600 px-6 py-3 font-semibold text-white transition hover:bg-blue-700"
 						>
 							다시 하기
