@@ -1,160 +1,159 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>성격 유형 테스트</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        ptdmed: ["Pretendard-Medium", "sans-serif"], 
-                        ptdsmb: ["Pretendard-SemiBold", "sans-serif"],
-                        ptdexb: ["Pretendard-ExtraBold", "sans-serif"],
-                    },
-                }
-            }
-        }
-    </script>
-    <style>
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>성격 유형 테스트</title>
+		<script src="https://cdn.tailwindcss.com"></script>
+		<script>
+			tailwind.config = {
+				theme: {
+					extend: {
+						fontFamily: {
+							ptdmed: ["Pretendard-Medium", "sans-serif"],
+							ptdsmb: ["Pretendard-SemiBold", "sans-serif"],
+							ptdexb: ["Pretendard-ExtraBold", "sans-serif"],
+						},
+					},
+				},
+			};
+		</script>
+		<style>
+			@keyframes fadeIn {
+				from {
+					opacity: 0;
+				}
+				to {
+					opacity: 1;
+				}
+			}
 
-        @keyframes fadeOut {
-            from { opacity: 1; }
-            to { opacity: 0; }
-        }
+			@keyframes fadeOut {
+				from {
+					opacity: 1;
+				}
+				to {
+					opacity: 0;
+				}
+			}
 
-        .fadeIn {
-            animation: fadeIn;
-            animation-duration: 0.3s;
-        }
+			.fadeIn {
+				animation: fadeIn;
+				animation-duration: 0.3s;
+			}
 
-        .fadeOut {
-            animation: fadeOut;
-            animation-duration: 0.3s;
-        }
-        @font-face {
-            font-family: 'Pretendard-Medium';
-            src: url('/fonts/Pretendard-Medium') format('woff');
-            font-weight: 500;
-            font-display: swap;
-        }
+			.fadeOut {
+				animation: fadeOut;
+				animation-duration: 0.3s;
+			}
+			@font-face {
+				font-family: "Pretendard-Medium";
+				src: url("/fonts/Pretendard-Medium") format("woff");
+				font-weight: 500;
+				font-display: swap;
+			}
 
-        @font-face {
-            font-family: 'Pretendard-SemiBold';
-            src: url('/fonts/Pretendard-SemiBold') format('woff');
-            font-weight: 600;
-            font-display: swap;
-        }
+			@font-face {
+				font-family: "Pretendard-SemiBold";
+				src: url("/fonts/Pretendard-SemiBold") format("woff");
+				font-weight: 600;
+				font-display: swap;
+			}
 
-        @font-face {
-            font-family: 'Pretendard-ExtraBold';
-            src: url('/fonts/Pretendard-ExtraBold.ttf') format('woff');
-            font-weight: 800;
-            font-display: swap;
-        }
-    </style>
-</head>
-<body class="flex h-screen w-full flex-col items-center justify-center bg-blue-900">
-    
-    <!-- 헤더 -->
-    <header class="absolute top-0 z-10 flex h-16 w-full max-w-md items-center justify-between bg-blue-800 px-6 text-white">
-        <a class="text-lg font-ptdexb" href="#">비슬고 ABTI 테스트</a>
-        <div class="text-2xl">📊</div>
-    </header>
+			@font-face {
+				font-family: "Pretendard-ExtraBold";
+				src: url("/fonts/Pretendard-ExtraBold.ttf") format("woff");
+				font-weight: 800;
+				font-display: swap;
+			}
+		</style>
+	</head>
+	<body class="flex h-screen w-full flex-col items-center justify-center bg-blue-900">
+		<!-- 헤더 -->
+		<header
+			class="absolute top-0 z-10 flex h-16 w-full max-w-md items-center justify-between bg-blue-800 px-6 text-white"
+		>
+			<a class="text-lg font-ptdexb" href="#">비슬고 ABTI 테스트</a>
+			<div class="text-2xl">📊</div>
+		</header>
 
-    <!-- 메인 컨테이너 -->
-    <div class="flex h-screen w-full max-w-md flex-col justify-between bg-white shadow-2xl">
-        
-        <!-- 메인 콘텐츠 영역 -->
-        <main class="h-full shrink overflow-y-auto">
-            
-            <!-- 메인 섹션 -->
-            <section id="main" class="h-full animate-fade-out">
-                <div class="flex h-full w-full flex-col items-center justify-between gap-4 px-12 pb-8 pt-32">
-                    <div class="flex h-full w-full flex-col items-center gap-8 overflow-hidden">
-                        <h1 class="flex flex-col items-center text-center text-3xl font-ptdexb">
-                            나는 어떤
-                            <div class="text-4xl">
-                                <strong class="border-b-4 border-b-blue-600">성격 유형</strong>일까?
-                            </div>
-                        </h1>
-                        <div class="relative flex h-full w-full flex-1 items-center justify-center">
-                            <div class="flex h-64 w-64 items-center justify-center rounded-lg bg-blue-100">
-                                <span class="text-6xl">🧠</span>
-                            </div>
-                        </div>
-                    </div>
-                    <button onclick="begin()" class="w-full rounded-lg bg-blue-600 px-6 py-3 font-ptdsmb text-white transition hover:bg-blue-700">
-                        시작하기
-                    </button>
-                </div>
-            </section>
+		<!-- 메인 컨테이너 -->
+		<div class="flex h-screen w-full max-w-md flex-col justify-between bg-white shadow-2xl">
+			<!-- 메인 콘텐츠 영역 -->
+			<main class="h-full shrink overflow-y-auto">
+				<!-- 메인 섹션 -->
+				<section id="main" class="h-full animate-fade-out">
+					<div class="flex h-full w-full flex-col items-center justify-between gap-4 px-12 pb-8 pt-32">
+						<div class="flex h-full w-full flex-col items-center gap-8 overflow-hidden">
+							<h1 class="flex flex-col items-center text-center text-3xl font-ptdexb">
+								나는 어떤
+								<div class="text-4xl"><strong class="border-b-4 border-b-blue-600">성격 유형</strong>일까?</div>
+							</h1>
+							<div class="relative flex h-full w-full flex-1 items-center justify-center">
+								<div class="flex h-64 w-64 items-center justify-center rounded-lg bg-blue-100">
+									<span class="text-6xl">🧠</span>
+								</div>
+							</div>
+						</div>
+						<button
+							onclick="begin()"
+							class="w-full rounded-lg bg-blue-600 px-6 py-3 font-ptdsmb text-white transition hover:bg-blue-700"
+						>
+							시작하기
+						</button>
+					</div>
+				</section>
 
-            <!-- QNA 섹션 -->
-            <section id="qna" class="hidden h-full">
-                <div class="flex h-full w-full flex-col items-center justify-between gap-4 px-12 pb-8 pt-32">
-                    <div class="flex h-full w-full flex-col items-center gap-8 overflow-hidden">
-                        <div class="w-full text-center">
-                            <div class="mb-2 text-sm font-semibold text-blue-600">질문 1 / 10</div>
-                            <div class="h-2 w-full rounded-full bg-gray-200">
-                                <div class="statusBar h-2 rounded-full bg-blue-600"></div>
-                            </div>
-                        </div>
-                        <div class="qBox text-center text-2xl font-bold">
+				<!-- QNA 섹션 -->
+				<section id="qna" class="hidden h-full">
+					<div class="flex h-full w-full flex-col items-center justify-between gap-4 px-12 pb-8 pt-32">
+						<div class="flex h-full w-full flex-col items-center gap-8 overflow-hidden">
+							<div class="w-full text-center">
+								<div class="mb-2 text-sm font-semibold text-blue-600">질문 1 / 10</div>
+								<div class="h-2 w-full rounded-full bg-gray-200">
+									<div class="statusBar h-2 rounded-full bg-blue-600"></div>
+								</div>
+							</div>
+							<div class="qBox text-center text-2xl font-bold"></div>
+							<div class="answerBox flex h-full w-full flex-col gap-4 overflow-y-auto"></div>
+						</div>
+					</div>
+				</section>
 
-                        </div>
-                        <div class="answerBox flex h-full w-full flex-col gap-4 overflow-y-auto">
-
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Result 섹션 -->
-            <section id="result" class="hidden h-full">
-                <div class="flex h-full w-full flex-col items-center justify-between gap-4 px-12 pb-8 pt-32">
-                    <div class="flex h-full w-full flex-col items-center gap-6 overflow-y-auto">
-                        <div class="text-center">
-                            <div class="mb-2 text-sm font-semibold text-blue-600">당신의 성격 유형은</div>
-                            <h1 class="resultname text-4xl font-bold"></h1>
-                            <!-- <p class="mt-2 text-xl font-semibold text-gray-700">열정적인 활동가</p> -->
-                        </div>
-                        <div class="flex h-48 w-48 items-center justify-center rounded-lg bg-gradient-to-br from-blue-100 to-purple-100">
-                            <div id="resultImg"></div>
-                        </div>
-                        <div class="w-full space-y-4 text-center">
-                            <div class="resultDesc text-gray-700">
-
-                            </div>
-                            <!-- <div class="space-y-2">
-                                <div class="font-semibold text-gray-800">주요 특징</div>
-                                <div class="flex flex-wrap justify-center gap-2">
-                                    <span class="rounded-full bg-blue-100 px-3 py-1 text-sm">외향적</span>
-                                    <span class="rounded-full bg-purple-100 px-3 py-1 text-sm">창의적</span>
-                                    <span class="rounded-full bg-pink-100 px-3 py-1 text-sm">열정적</span>
-                                </div>
-                            </div> -->
-                        </div>
-                    </div>
-                    <button onclick="" class="w-full rounded-lg bg-blue-600 px-6 py-3 font-semibold text-white transition hover:bg-blue-700">
-                        다시 하기
-                    </button>
-                </div>
-                    <script src="data.js"></script>
-                    <script src="script.js"></script>
-            </section>
-        </main>
-        <!-- 푸터 -->
-        <footer class="flex w-full shrink-0 items-center justify-between px-6 py-2 text-xs font-ptdsmb text-gray-600">
-            <div>2025 비슬고 미디어홍보부 @biseul_hs</div>
-            <div>신유찬</div>
-        </footer>
-    </div>
-</body>
+				<!-- Result 섹션 -->
+				<section id="result" class="hidden h-full">
+					<div class="flex h-full w-full flex-col items-center justify-between gap-4 px-12 pb-8 pt-32">
+						<div class="flex h-full w-full flex-col items-center gap-6 overflow-y-auto">
+							<div class="text-center">
+								<div class="mb-2 text-sm font-semibold text-blue-600">당신의 성격 유형은</div>
+								<h1 class="resultname text-4xl font-bold"></h1>
+								<!-- <p class="mt-2 text-xl font-semibold text-gray-700">열정적인 활동가</p> -->
+							</div>
+							<div
+								class="flex h-48 w-48 items-center justify-center rounded-lg bg-gradient-to-br from-blue-100 to-purple-100"
+							>
+								<div id="resultImg"></div>
+							</div>
+							<div class="w-full space-y-4 text-center">
+								<div class="resultDesc text-gray-700"></div>
+							</div>
+						</div>
+						<button
+							onclick=""
+							class="w-full rounded-lg bg-blue-600 px-6 py-3 font-semibold text-white transition hover:bg-blue-700"
+						>
+							다시 하기
+						</button>
+					</div>
+					<script src="data.js"></script>
+					<script src="script.js"></script>
+				</section>
+			</main>
+			<!-- 푸터 -->
+			<footer class="flex w-full shrink-0 items-center justify-between px-6 py-2 text-xs font-ptdsmb text-gray-600">
+				<div>2025 비슬고 미디어홍보부 @biseul_hs</div>
+				<div>신유찬</div>
+			</footer>
+		</div>
+	</body>
 </html>
